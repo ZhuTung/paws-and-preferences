@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Connect MongoDB
 mongoose
   .connect(
     "mongodb+srv://<db_username>:<db_password>@dev.5n7ub.mongodb.net/paws-and-preferences?retryWrites=true&w=majority",
