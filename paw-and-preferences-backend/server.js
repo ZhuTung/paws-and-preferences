@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
@@ -6,18 +7,19 @@ const path = require("path");
 const Image = require("./models/Image");
 
 const app = express();
+
+const PORT = process.env.PORT;
+const MONGODB_URI = process.env.MONGODB_URI;
+
 app.use(cors());
 app.use(express.json());
 
 // Connect MongoDB
 mongoose
-  .connect(
-    "mongodb+srv://<db_username>:<db_password>@dev.5n7ub.mongodb.net/paws-and-preferences?retryWrites=true&w=majority",
-    {
-      useNewURLParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(MONGODB_URI, {
+    useNewURLParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("MongoDB Atlas Connected"))
   .catch((err) => console.error("MongoDB connection error: ", err));
 
@@ -76,4 +78,6 @@ app.get("/images/:userId", async (req, res) => {
 
 app.use("/uploads", express.static("uploads"));
 
-app.listen(5000, () => console.log("Server running on http://localhost:5000"));
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);
