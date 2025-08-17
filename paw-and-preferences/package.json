@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -f -r https://github.com/ZhuTung/paw-and-preferences.git",
+    "deploy": "gh-pages -d dist -f -r https://github.com/ZhuTung/paws-and-preferences.git",
     "lint": "eslint .",
     "preview": "vite preview"
   },
