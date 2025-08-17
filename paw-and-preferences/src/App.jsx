@@ -67,11 +67,15 @@ const App = () => {
     formData.append("userId", currentUserId);
 
     try {
-      await axios.post("http://localhost:5000/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        "https://paws-and-preferences-server.onrender.com/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
     } catch (err) {
       console.error("Error uploading image: ", err);
     }

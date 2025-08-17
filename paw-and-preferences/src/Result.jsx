@@ -10,7 +10,9 @@ const Result = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/images/${userId}`);
+        const res = await axios.get(
+          `https://paws-and-preferences-server.onrender.com/images/${userId}`
+        );
         setImages(res.data);
       } catch (err) {
         console.error("Failed to fetch images: ", err);
@@ -21,18 +23,7 @@ const Result = () => {
 
   const getImageSrc = (image) => {
     // Construct the full URL for the image
-    return `http://localhost:5000${image.path}`;
-  };
-
-  const fetchImages = async () => {
-    try {
-      const res = await axios.get(
-        `http://localhost:5000/images/${currentUserId}`
-      );
-      setImages(res.data);
-    } catch (err) {
-      console.error("Failed to fetch images");
-    }
+    return `https://paws-and-preferences-server.onrender.com${image.path}`;
   };
 
   return (
