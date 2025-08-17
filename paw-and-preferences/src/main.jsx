@@ -5,7 +5,7 @@ import Result from "./Result.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/paws-and-preferences">
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/result" element={<Result />} />
